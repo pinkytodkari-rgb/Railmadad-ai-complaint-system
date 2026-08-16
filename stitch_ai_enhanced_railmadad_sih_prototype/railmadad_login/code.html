@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Select Login Type - RailMadad</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#fbf9f8",
+                      "on-surface": "#1b1c1c",
+                      "surface-dim": "#dcd9d9",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed": "#400106",
+                      "tertiary-fixed": "#acf1d5",
+                      "status-resolved": "#2E7D32",
+                      "on-secondary": "#ffffff",
+                      "status-emergency": "#C62828",
+                      "primary-container": "#7b2c2c",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e4e2e1",
+                      "on-error-container": "#93000a",
+                      "ai-accent": "#E3F2FD",
+                      "outline-variant": "#dbc1bf",
+                      "on-background": "#1b1c1c",
+                      "inverse-surface": "#303030",
+                      "surface-container-highest": "#e4e2e1",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#00513d",
+                      "inverse-primary": "#ffb3af",
+                      "surface-container-low": "#f6f3f2",
+                      "primary-fixed-dim": "#ffb3af",
+                      "surface-bright": "#fbf9f8",
+                      "tertiary-fixed-dim": "#91d4ba",
+                      "on-tertiary-fixed": "#002117",
+                      "secondary-container": "#ff668e",
+                      "inverse-on-surface": "#f3f0f0",
+                      "surface": "#fbf9f8",
+                      "secondary-fixed-dim": "#ffb1c0",
+                      "on-primary-fixed-variant": "#7b2c2c",
+                      "surface-container-high": "#eae8e7",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#554241",
+                      "on-secondary-fixed": "#3f0016",
+                      "on-primary-container": "#ff9894",
+                      "on-error": "#ffffff",
+                      "background-alt": "#F4F4F4",
+                      "surface-tint": "#9a4342",
+                      "primary-fixed": "#ffdad8",
+                      "on-tertiary-container": "#80c2a9",
+                      "ai-stroke": "#2196F3",
+                      "surface-container": "#f0eded",
+                      "on-secondary-container": "#6b002b",
+                      "primary": "#5d1618",
+                      "secondary": "#af2853",
+                      "status-pending": "#FF8F00",
+                      "secondary-fixed": "#ffd9df",
+                      "outline": "#887271",
+                      "tertiary": "#003829",
+                      "on-secondary-fixed-variant": "#8e083c",
+                      "tertiary-container": "#00513d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "margin-mobile": "16px",
+                      "gutter": "20px",
+                      "base": "4px",
+                      "margin-desktop": "auto",
+                      "sm": "16px",
+                      "lg": "40px",
+                      "xl": "64px",
+                      "md": "24px",
+                      "max-width": "1280px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Hidden, as this is a login screen) -->
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center p-margin-mobile md:p-md w-full max-w-max-width mx-margin-desktop relative z-10">
+<!-- Header Section -->
+<div class="text-center mb-xl w-full max-w-2xl">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-xs">Select Login Type</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Welcome to RailMadad. Please select your user profile to access the appropriate dashboard and services.</p>
+</div>
+<!-- Role Selection Cards Container -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter w-full max-w-5xl mb-xl">
+<!-- Passenger Card -->
+<button aria-label="Login as Passenger" class="flex flex-col items-center p-md bg-surface border border-outline-variant rounded-xl shadow-sm hover:border-primary hover:shadow-md transition-all group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-sm group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[32px] text-primary group-hover:text-on-primary-container transition-colors" data-icon="person">person</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-base">Passenger</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center">For citizens to lodge grievances, track status, and seek assistance.</p>
+</button>
+<!-- Railway Staff Card -->
+<button aria-label="Login as Railway Staff" class="flex flex-col items-center p-md bg-surface border border-outline-variant rounded-xl shadow-sm hover:border-primary hover:shadow-md transition-all group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-sm group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[32px] text-primary group-hover:text-on-primary-container transition-colors" data-icon="badge">badge</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-base">Railway Staff</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center">For field staff to resolve assigned complaints and update status.</p>
+</button>
+<!-- Railway Admin Card -->
+<button aria-label="Login as Railway Admin" class="flex flex-col items-center p-md bg-surface border border-outline-variant rounded-xl shadow-sm hover:border-primary hover:shadow-md transition-all group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-sm group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[32px] text-primary group-hover:text-on-primary-container transition-colors" data-icon="admin_panel_settings">admin_panel_settings</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-base">Railway Admin</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center">For supervisors to view MIS reports, AI insights, and system settings.</p>
+</button>
+</div>
+<!-- Dynamic Login Form Area (Example showing Passenger Form) -->
+<div class="w-full max-w-md bg-surface border border-outline-variant rounded-xl shadow-sm p-lg">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md text-center border-b border-outline-variant pb-xs">Passenger Login</h3>
+<form class="space-y-sm">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface block" for="mobile">Mobile Number / Email ID</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-sm py-[10px] font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-on-surface-variant/50" id="mobile" placeholder="Enter mobile number or email" type="text"/>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface block" for="password">Password / OTP</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-sm pr-10 py-[10px] font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-on-surface-variant/50" id="password" placeholder="Enter password or OTP" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex justify-end">
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Forgot Password?</a>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface block" for="captcha">Security Code</label>
+<div class="flex gap-sm items-center">
+<div class="bg-surface-container-highest border border-outline-variant rounded-lg h-10 w-32 flex items-center justify-center font-mono font-bold tracking-widest text-on-surface select-none relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-40" data-alt="A distorted, noise-filled rectangular image designed to look like a standard web CAPTCHA challenge. The image contains distorted alphanumeric characters in black against a cluttered, patterned white and light grey background, typical of security verification systems. The style is utilitarian and intentionally slightly difficult to read." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCd6r7EfllMivZOwr7d-UI_rnwUbMZTltYC12YjtkLVhAVgmiZ1zblid7cnqBUdCm9YoIXKo8o0Tf0wjCrAhIcAyIcz2cDvAo-DISm9N9khBYpUEjUy7x4k2HM5OSteLFdx9AiL02wD01eGcFyY-aGEKvZE_i9j8K8vY19ETnLgjPMpzTZu6SgG5QlDDE1G1grNSUJLPZ9x_LGwOAkeVAiaWg3A8Y0n3d-rXwjRiQTI0yVAsa-Gnu8m_A')"></div>
+<span class="relative z-10 mix-blend-difference text-white">X92KQ</span>
+</div>
+<button aria-label="Refresh CAPTCHA" class="p-xs text-on-surface-variant hover:text-primary focus:outline-none rounded-full hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+<input class="flex-1 bg-surface-container-lowest border border-outline-variant rounded-lg px-sm py-[10px] font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-on-surface-variant/50" id="captcha" placeholder="Enter code" type="text"/>
+</div>
+</div>
+<div class="pt-sm space-y-xs">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors" type="submit">Login</button>
+<button class="w-full bg-transparent border border-primary text-primary font-label-md text-label-md py-3 rounded-lg hover:bg-primary-container/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors" type="button">Request OTP Instead</button>
+</div>
+</form>
+<div class="mt-md text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">New User? <a class="text-primary font-semibold hover:underline" href="#">Sign Up</a></p>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant w-full py-lg px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center mt-auto">
+<div class="mb-md md:mb-0 text-center md:text-left">
+<span class="font-label-md text-label-md font-black uppercase text-primary block mb-xs">RailMadad</span>
+<span class="font-body-sm text-body-sm text-on-surface dark:text-inverse-on-surface">© 2024 Indian Railways - RailMadad AI Grievance Redressal. All Rights Reserved.</span>
+</div>
+<nav class="flex flex-wrap justify-center gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">FAQs</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Railway Admin Login</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">MIS Report Login</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Privacy Policy</a>
+</nav>
+</footer>
+</body></html>

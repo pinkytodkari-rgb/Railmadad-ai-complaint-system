@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RailMadad - AI Complaint Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#fbf9f8",
+                      "on-surface": "#1b1c1c",
+                      "surface-dim": "#dcd9d9",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed": "#400106",
+                      "tertiary-fixed": "#acf1d5",
+                      "status-resolved": "#2E7D32",
+                      "on-secondary": "#ffffff",
+                      "status-emergency": "#C62828",
+                      "primary-container": "#7b2c2c",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e4e2e1",
+                      "on-error-container": "#93000a",
+                      "ai-accent": "#E3F2FD",
+                      "outline-variant": "#dbc1bf",
+                      "on-background": "#1b1c1c",
+                      "inverse-surface": "#303030",
+                      "surface-container-highest": "#e4e2e1",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#00513d",
+                      "inverse-primary": "#ffb3af",
+                      "surface-container-low": "#f6f3f2",
+                      "primary-fixed-dim": "#ffb3af",
+                      "surface-bright": "#fbf9f8",
+                      "tertiary-fixed-dim": "#91d4ba",
+                      "on-tertiary-fixed": "#002117",
+                      "secondary-container": "#ff668e",
+                      "inverse-on-surface": "#f3f0f0",
+                      "surface": "#fbf9f8",
+                      "secondary-fixed-dim": "#ffb1c0",
+                      "on-primary-fixed-variant": "#7b2c2c",
+                      "surface-container-high": "#eae8e7",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#554241",
+                      "on-secondary-fixed": "#3f0016",
+                      "on-primary-container": "#ff9894",
+                      "on-error": "#ffffff",
+                      "background-alt": "#F4F4F4",
+                      "surface-tint": "#9a4342",
+                      "primary-fixed": "#ffdad8",
+                      "on-tertiary-container": "#80c2a9",
+                      "ai-stroke": "#2196F3",
+                      "surface-container": "#f0eded",
+                      "on-secondary-container": "#6b002b",
+                      "primary": "#5d1618",
+                      "secondary": "#af2853",
+                      "status-pending": "#FF8F00",
+                      "secondary-fixed": "#ffd9df",
+                      "outline": "#887271",
+                      "tertiary": "#003829",
+                      "on-secondary-fixed-variant": "#8e083c",
+                      "tertiary-container": "#00513d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "margin-mobile": "16px",
+                      "gutter": "20px",
+                      "base": "4px",
+                      "margin-desktop": "auto",
+                      "sm": "16px",
+                      "lg": "40px",
+                      "xl": "64px",
+                      "md": "24px",
+                      "max-width": "1280px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col h-full p-4 gap-xs fixed left-0 top-0 w-64 bg-surface-container-low border-r border-outline-variant z-20">
+<div class="mb-lg px-2">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Admin Portal</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ministry of Railways</p>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-sm p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">pending_actions</span>
+<span class="font-label-md text-label-md">Pending Cases</span>
+</a>
+<!-- Active Tab: AI Insights -->
+<a class="flex items-center gap-sm p-3 bg-primary-container text-on-primary-container rounded-lg font-bold translate-x-1 opacity-90 hover:bg-primary-container/90 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-md text-label-md">AI Insights</span>
+</a>
+<a class="flex items-center gap-sm p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Departmental Reports</span>
+</a>
+<a class="flex items-center gap-sm p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">System Settings</span>
+</a>
+</div>
+<button class="w-full py-2 px-4 bg-primary text-on-primary rounded-full font-label-md text-label-md mb-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Analysis
+        </button>
+<div class="flex flex-col gap-xs border-t border-outline-variant pt-4">
+<a class="flex items-center gap-sm p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="flex items-center gap-sm p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-64 w-full h-full relative overflow-y-auto overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-10 w-full bg-primary text-on-primary border-b border-outline-variant shadow-sm flex flex-col">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto py-3">
+<div class="flex items-center gap-md">
+<button class="md:hidden text-on-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-on-primary">RailMadad</div>
+</div>
+<!-- Web Navigation Links -->
+<nav class="hidden md:flex items-center gap-lg">
+<!-- Active Link -->
+<a class="text-on-primary border-b-2 border-on-primary pb-1 font-label-md text-label-md opacity-90 scale-95 transition-all" href="#">Train Complaints</a>
+<a class="text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-2 py-1 rounded font-label-md text-label-md" href="#">Station Complaints</a>
+<a class="text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-2 py-1 rounded font-label-md text-label-md" href="#">Rail Anubhav</a>
+<a class="text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-2 py-1 rounded font-label-md text-label-md" href="#">Track Concern</a>
+<a class="text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-2 py-1 rounded font-label-md text-label-md" href="#">Suggestions</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="hidden md:flex text-on-primary/80 hover:text-on-primary font-label-md text-label-md px-3 py-1">Language</button>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="ml-2 px-4 py-2 bg-on-primary text-primary rounded-full font-label-md text-label-md hidden md:block hover:opacity-90">Login / Sign Up</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 w-full px-margin-mobile md:px-margin-desktop py-md md:py-lg max-w-max-width mx-auto flex flex-col gap-md">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-2">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">AI Analysis Report</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Incident ID: INC-104-992</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-ai-accent text-ai-stroke font-label-sm text-label-sm border border-ai-stroke/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+                        AI Processed
+                    </span>
+<span class="px-3 py-1 rounded-full bg-status-emergency/10 text-status-emergency font-label-sm text-label-sm border border-status-emergency/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                        High Urgency
+                    </span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+<!-- Left Column (Main Analysis) -->
+<div class="lg:col-span-8 flex flex-col gap-md">
+<!-- Detected Complaint Card -->
+<div class="bg-surface rounded-xl p-md border border-surface-variant shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-ai-stroke">91%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Confidence</span>
+</div>
+</div>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Detected Issue</h3>
+<div class="font-headline-md text-headline-md text-on-surface font-bold mb-4">Water Leakage</div>
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Primary Category</p>
+<p class="font-body-md text-body-md font-medium text-on-surface flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-primary text-[18px]">build</span>
+                                    Coach Maintenance
+                                </p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Affected Area</p>
+<p class="font-body-md text-body-md font-medium text-on-surface flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-primary text-[18px]">water_drop</span>
+                                    Restroom / Washbasin
+                                </p>
+</div>
+</div>
+</div>
+<!-- Evidence Consistency Check (AI Layer) -->
+<div class="bg-ai-accent/20 rounded-xl p-md border border-ai-stroke shadow-sm relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-ai-stroke rounded-l-xl"></div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-ai-stroke">fact_check</span>
+                                Evidence Consistency Check
+                            </h3>
+<div class="px-3 py-1 bg-status-resolved/10 text-status-resolved rounded-full font-label-md text-label-md border border-status-resolved/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                                SUPPORTED
+                            </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm">
+<div class="bg-surface rounded-lg p-3 border border-outline-variant flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Passenger Text</span>
+<div class="flex items-center gap-2 text-status-resolved">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span class="font-label-md text-label-md">Supported</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface line-clamp-2 mt-1">"Constant dripping from the ceiling near berth 42..."</p>
+</div>
+<div class="bg-surface rounded-lg p-3 border border-outline-variant flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Image Analysis</span>
+<div class="flex items-center gap-2 text-status-resolved">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span class="font-label-md text-label-md">Supported</span>
+</div>
+<div class="h-10 w-16 bg-surface-variant rounded mt-1 overflow-hidden relative border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A close up, slightly blurry photo taken inside a train coach showing water droplets forming and dripping from a metallic air conditioning vent on the ceiling. The lighting is dim, fluorescent train interior lighting. The overall mood is inconvenient and slightly dirty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI7L1Nf332X8mrGuGpjcSb-8tPcPDLDI57e_UfIGeNrqFvxxMo9MB8GOcu0TN1JldxpsbRVe6stv92Jls7AeCqhc5eMckbvs2A7s7Ski9jTTlXx2AKr65XrPtylvvOuS5kY8-32AJ0NwmpcDfCaZmO8qa1B7Mhz58-3tFcUQFbPt36Gv9i5URUAR8uZW4UmHTHi56nxwiSMKxqO8fSNE51M--UwXz080CmZt7IKJ8Ypcd_mVj3xUsAxQ"/>
+</div>
+</div>
+<div class="bg-surface rounded-lg p-3 border border-outline-variant flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Railway Context</span>
+<div class="flex items-center gap-2 text-status-resolved">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-md text-label-md">Verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">Coach layout confirms plumbing lines exist above berth 42.</p>
+</div>
+</div>
+</div>
+<!-- Railway Context Card -->
+<div class="bg-surface rounded-xl p-md border border-surface-variant shadow-sm flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">train</span>
+                                Railway Context
+                            </h3>
+<div class="grid grid-cols-2 gap-y-4 gap-x-2">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Train</p>
+<p class="font-body-md text-body-md font-medium text-on-surface">12951 (Rajdhani Exp)</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Coach &amp; Berth</p>
+<p class="font-body-md text-body-md font-medium text-on-surface">S5 - Berth 42</p>
+</div>
+<div class="col-span-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Current Status</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-status-resolved"></span>
+<p class="font-body-md text-body-md text-on-surface">Approaching Surat (Next Stop: 45 mins)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-48 h-32 bg-surface-variant rounded-lg border border-outline-variant flex items-center justify-center relative overflow-hidden">
+<!-- Map placeholder visual -->
+<div class="absolute inset-0 opacity-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] text-outline">map</span>
+</div>
+<div class="absolute bottom-2 left-2 px-2 py-1 bg-surface/80 rounded backdrop-blur text-[10px] font-label-sm uppercase">Surat Sector</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Status & Actions) -->
+<div class="lg:col-span-4 flex flex-col gap-md">
+<!-- Processing Status -->
+<div class="bg-surface rounded-xl p-md border border-surface-variant shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Processing Timeline</h3>
+<div class="flex flex-col gap-4 relative">
+<!-- Connecting Line -->
+<div class="absolute left-[11px] top-4 bottom-4 w-[2px] bg-outline-variant"></div>
+<div class="flex gap-3 relative z-10">
+<div class="w-6 h-6 rounded-full bg-status-resolved text-on-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Complaint Received</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">10:14 AM</p>
+</div>
+</div>
+<div class="flex gap-3 relative z-10">
+<div class="w-6 h-6 rounded-full bg-status-resolved text-on-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Understanding Context</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">NLP parsing complete.</p>
+</div>
+</div>
+<div class="flex gap-3 relative z-10">
+<div class="w-6 h-6 rounded-full bg-status-resolved text-on-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Image Analysis</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Water leak detected.</p>
+</div>
+</div>
+<div class="flex gap-3 relative z-10">
+<div class="w-6 h-6 rounded-full bg-status-resolved text-on-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Detecting Urgency</p>
+<p class="font-body-sm text-body-sm text-status-emergency">High Priority Flagged.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Complaints -->
+<div class="bg-surface rounded-xl p-md border border-surface-variant shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">group</span>
+                            Cluster Alert
+                        </h3>
+<p class="font-body-sm text-body-sm text-on-surface mb-3">
+<strong class="text-secondary">3 other passengers</strong> reported Water Leakage in Coach S5 within the last 14 minutes.
+                        </p>
+<div class="bg-surface-container-low p-2 rounded border border-outline-variant flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Incident Linked:</span>
+<span class="font-label-md text-label-md text-primary underline cursor-pointer">INC-104</span>
+</div>
+</div>
+<!-- Smart Routing & Action -->
+<div class="bg-surface rounded-xl p-md border border-primary/20 shadow-sm mt-auto border-t-4 border-t-primary">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Smart Routing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                            AI recommends forwarding to: <br/>
+<strong class="text-on-surface">Water &amp; Sanitation / Coach Maintenance Department</strong>
+</p>
+<button class="w-full bg-primary hover:bg-primary/90 text-on-primary font-label-md text-label-md py-3 rounded-lg shadow-sm transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">send</span>
+                            Confirm &amp; Track Complaint
+                        </button>
+<button class="w-full mt-2 bg-transparent text-primary hover:bg-surface-variant font-label-md text-label-md py-2 rounded-lg transition-all">
+                            Modify Routing
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-highest mt-auto border-t border-outline-variant">
+<div class="w-full py-lg px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex flex-col gap-1 items-center md:items-start">
+<span class="font-label-md text-label-md font-black uppercase text-primary">RailMadad</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Indian Railways - RailMadad AI Grievance Redressal. All Rights Reserved.</span>
+</div>
+<div class="flex flex-wrap gap-4 justify-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">FAQs</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Railway Admin Login</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">MIS Report Login</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

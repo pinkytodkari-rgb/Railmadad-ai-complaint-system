@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RailMadad - Train Complaint</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fbf9f8",
+              "on-surface": "#1b1c1c",
+              "surface-dim": "#dcd9d9",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#400106",
+              "tertiary-fixed": "#acf1d5",
+              "status-resolved": "#2E7D32",
+              "on-secondary": "#ffffff",
+              "status-emergency": "#C62828",
+              "primary-container": "#7b2c2c",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "surface-variant": "#e4e2e1",
+              "on-error-container": "#93000a",
+              "ai-accent": "#E3F2FD",
+              "outline-variant": "#dbc1bf",
+              "on-background": "#1b1c1c",
+              "inverse-surface": "#303030",
+              "surface-container-highest": "#e4e2e1",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#00513d",
+              "inverse-primary": "#ffb3af",
+              "surface-container-low": "#f6f3f2",
+              "primary-fixed-dim": "#ffb3af",
+              "surface-bright": "#fbf9f8",
+              "tertiary-fixed-dim": "#91d4ba",
+              "on-tertiary-fixed": "#002117",
+              "secondary-container": "#ff668e",
+              "inverse-on-surface": "#f3f0f0",
+              "surface": "#fbf9f8",
+              "secondary-fixed-dim": "#ffb1c0",
+              "on-primary-fixed-variant": "#7b2c2c",
+              "surface-container-high": "#eae8e7",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#554241",
+              "on-secondary-fixed": "#3f0016",
+              "on-primary-container": "#ff9894",
+              "on-error": "#ffffff",
+              "background-alt": "#F4F4F4",
+              "surface-tint": "#9a4342",
+              "primary-fixed": "#ffdad8",
+              "on-tertiary-container": "#80c2a9",
+              "ai-stroke": "#2196F3",
+              "surface-container": "#f0eded",
+              "on-secondary-container": "#6b002b",
+              "primary": "#5d1618",
+              "secondary": "#af2853",
+              "status-pending": "#FF8F00",
+              "secondary-fixed": "#ffd9df",
+              "outline": "#887271",
+              "tertiary": "#003829",
+              "on-secondary-fixed-variant": "#8e083c",
+              "tertiary-container": "#00513d"
+            },
+            borderRadius: {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            spacing: {
+              "xs": "8px",
+              "margin-mobile": "16px",
+              "gutter": "20px",
+              "base": "4px",
+              "margin-desktop": "auto",
+              "sm": "16px",
+              "lg": "40px",
+              "xl": "64px",
+              "md": "24px",
+              "max-width": "1280px"
+            },
+            fontFamily: {
+              "body-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "headline-lg": ["Inter"],
+              "headline-sm": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "label-md": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-sm": ["Inter"],
+              "body-lg": ["Inter"]
+            },
+            fontSize: {
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "500" }],
+              "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+              "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+              "label-md": ["14px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "600" }],
+              "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #fbf9f8;
+        color: #1b1c1c;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid #e4e2e1;
+      }
+      /* Ensure Material Icons render correctly */
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .icon-fill {
+        font-variation-settings: 'FILL' 1;
+      }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-background relative overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-primary dark:bg-primary-container docked full-width top-0 border-b border-outline-variant shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto py-3">
+<div class="flex items-center gap-md">
+<!-- Brand Logo -->
+<div class="font-headline-lg text-headline-lg font-bold text-on-primary">
+                    RailMadad
+                </div>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex gap-sm items-center ml-lg">
+<a class="font-label-md text-label-md text-on-primary border-b-2 border-on-primary pb-1 active opacity-90 scale-95 transition-all" href="#">Train Complaints</a>
+<a class="font-label-md text-label-md text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-2 py-1 rounded" href="#">Station Complaints</a>
+<a class="font-label-md text-label-md text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-2 py-1 rounded" href="#">Rail Anubhav</a>
+<a class="font-label-md text-label-md text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-2 py-1 rounded" href="#">Track Concern</a>
+<a class="font-label-md text-label-md text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-2 py-1 rounded" href="#">Suggestions</a>
+</nav>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-sm">
+<button class="hidden md:flex items-center justify-center font-label-md text-label-md text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors px-3 py-2 rounded">
+                    Language
+                </button>
+<div class="flex items-center gap-xs">
+<button class="p-2 text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-primary/80 hover:text-on-primary hover:bg-primary-container/20 transition-colors rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<button class="font-label-md text-label-md bg-on-primary text-primary px-4 py-2 rounded-lg hover:bg-surface-variant transition-colors ml-sm">
+                    Login / Sign Up
+                </button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container ml-sm cursor-pointer border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a person, generic placeholder user avatar, isolated against a neutral light grey background, high quality, well lit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFirN8TqxLVcGWJETEjMESCGK1UPOSAfhl5vqSlQ5RqSw1ewHJr5SDA4GIKVpL3sR-fpZXpEecD6xLjJ3irJlCcmoHKzmopzTH2pxXuRifyATSRFXqYhMycU3rxuGoH4w9IG1hEDpyUz_FL-MusJTDYatXxDRBzrwvM7Nmo7e7K-apzGuGaNe91EeNUWlfS_Mta6hAmKbOwv5a_ewDTZ0EunHvgNFFodQ5V2qLEHPHgcgK9ltnMO4N7A">
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto py-lg grid grid-cols-1 lg:grid-cols-12 gap-md relative">
+<!-- Form Area (Left/Main Column) -->
+<div class="lg:col-span-8 flex flex-col gap-md">
+<!-- Page Header & Demo Trigger -->
+<div class="flex justify-between items-end mb-sm">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Train Complaint</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Register a grievance related to your ongoing or upcoming train journey.</p>
+</div>
+<button class="flex items-center gap-2 font-label-md text-label-md text-ai-stroke bg-ai-accent hover:bg-blue-100 px-4 py-2 rounded-lg border border-ai-stroke transition-colors" onclick="loadDemo()">
+<span class="material-symbols-outlined text-[18px]">magic_button</span>
+                    Load Demo Complaint
+                </button>
+</div>
+<!-- Bento Grid layout for Form Sections -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Section 1: Journey Identification -->
+<section class="glass-card rounded-xl p-md shadow-sm col-span-1 md:col-span-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">train</span>
+                        Journey Identification
+                    </h2>
+<!-- Tabs -->
+<div class="flex bg-surface-container-high rounded-lg p-1 mb-md w-fit">
+<button class="font-label-md text-label-md px-6 py-2 rounded-md bg-surface shadow-sm text-on-surface">PNR</button>
+<button class="font-label-md text-label-md px-6 py-2 rounded-md text-on-surface-variant hover:text-on-surface">UTS</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">PNR Number *</label>
+<input class="font-body-sm text-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none" id="pnr-input" placeholder="Enter 10 digit PNR" type="text">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Mobile Number *</label>
+<input class="font-body-sm text-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="10 digit number" type="tel">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Journey Date</label>
+<input class="font-body-sm text-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none text-on-surface-variant" type="date">
+</div>
+</div>
+</section>
+<!-- Section 2: Complaint Details -->
+<section class="glass-card rounded-xl p-md shadow-sm col-span-1 md:col-span-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">edit_document</span>
+                        Complaint Details
+                    </h2>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Description *</label>
+<textarea class="font-body-sm text-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-3 focus:ring-2 focus:ring-primary focus:border-primary outline-none resize-y" id="complaint-desc" placeholder="Please describe your concern in detail..." rows="5"></textarea>
+</div>
+</section>
+<!-- Section 3: Evidence -->
+<section class="glass-card rounded-xl p-md shadow-sm col-span-1 md:col-span-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">attachment</span>
+                        Add Supporting Evidence
+                    </h2>
+<div class="flex flex-wrap gap-sm mb-md">
+<button class="flex items-center gap-2 font-label-md text-label-md border border-outline-variant text-on-surface-variant hover:bg-surface-variant px-4 py-2 rounded-lg transition-colors bg-surface-container-lowest" onclick="document.getElementById('demo-evidence').classList.remove('hidden')">
+<span class="material-symbols-outlined">photo_camera</span> Photo
+                        </button>
+<button class="flex items-center gap-2 font-label-md text-label-md border border-outline-variant text-on-surface-variant hover:bg-surface-variant px-4 py-2 rounded-lg transition-colors bg-surface-container-lowest">
+<span class="material-symbols-outlined">videocam</span> Video
+                        </button>
+<button class="flex items-center gap-2 font-label-md text-label-md border border-outline-variant text-on-surface-variant hover:bg-surface-variant px-4 py-2 rounded-lg transition-colors bg-surface-container-lowest">
+<span class="material-symbols-outlined">mic</span> Audio
+                        </button>
+<button class="flex items-center gap-2 font-label-md text-label-md border border-outline-variant text-on-surface-variant hover:bg-surface-variant px-4 py-2 rounded-lg transition-colors bg-surface-container-lowest">
+<span class="material-symbols-outlined">description</span> Text
+                        </button>
+</div>
+<!-- Hidden Demo Evidence Container -->
+<div class="hidden mt-sm p-sm border border-outline-variant rounded-lg bg-surface flex items-start gap-md" id="demo-evidence">
+<div class="w-24 h-24 rounded-md overflow-hidden flex-shrink-0 border border-outline-variant">
+<img alt="Evidence Photo" class="w-full h-full object-cover" data-alt="A close up view of a train window panel showing water leaking from the top edge, creating a puddle on the seat below. The train interior is dimly lit with utilitarian light mode styling. Institutional, slightly worn aesthetic. High resolution, realistic depiction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwlIj5XUWbOF_b5Rsx1Ur_A_xIPfLw6FnYQHywI9a82aj_kw_Y5IAXdk7QiCARfYKXWvMXosRTxitxFRLl-iN5X9niOj4R7csmLlAgOwzZE4xe_k-3PBZUNTUblwkIhy8iWlXotjrRMqvlDUMdtvqj8QwPSEVDeyfKhnm9w_Q853v50lpNkp_h2Au-nz68aVlarWps9KsQkApgRkW5MXnLlWmJzRxAbS9qxK9hhxtNdj48Aikmlp5vsw">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface">leakage_b2_seat42.jpg</span>
+<button class="text-error hover:text-on-error-container">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2.4 MB</span>
+</div>
+</div>
+</section>
+<!-- Primary Action -->
+<div class="col-span-1 md:col-span-2 flex justify-end mt-sm">
+<button class="font-label-md text-label-md bg-primary text-on-primary px-8 py-3 rounded-xl hover:bg-primary-container transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined icon-fill">neurology</span>
+                        Analyze &amp; Register Complaint
+                    </button>
+</div>
+</div>
+</div>
+<!-- Right Column / Spacer for Floating Elements -->
+<div class="hidden lg:block lg:col-span-4 relative">
+<!-- Space reserved for contextual AI insights later in the flow, currently empty to balance the asymmetrical form -->
+</div>
+</main>
+<!-- Floating AI Assistant Chatbox -->
+<aside class="fixed bottom-lg right-margin-mobile md:right-margin-desktop z-40 w-[320px] bg-surface rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.15)] border border-ai-stroke overflow-hidden flex flex-col transition-transform duration-300 transform translate-y-0">
+<!-- Chat Header -->
+<div class="bg-primary px-4 py-3 flex justify-between items-center cursor-pointer" onclick="toggleChat()">
+<div class="flex items-center gap-2 text-on-primary">
+<span class="material-symbols-outlined icon-fill text-tertiary-fixed">smart_toy</span>
+<span class="font-label-md text-label-md font-bold">RailMadad AI Support</span>
+</div>
+<button class="text-on-primary/80 hover:text-on-primary">
+<span class="material-symbols-outlined" id="chat-chevron">expand_more</span>
+</button>
+</div>
+<!-- Chat Body -->
+<div class="p-4 bg-surface-container-lowest h-64 overflow-y-auto flex flex-col gap-sm" id="chat-body">
+<div class="flex gap-2 items-start">
+<div class="w-8 h-8 rounded-full bg-ai-accent flex items-center justify-center flex-shrink-0 border border-ai-stroke text-ai-stroke">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div class="bg-surface-variant px-3 py-2 rounded-2xl rounded-tl-none max-w-[85%] border border-outline-variant/50">
+<p class="font-body-sm text-body-sm text-on-surface">How can I help you register your concern today?</p>
+</div>
+</div>
+<!-- Suggestion chips -->
+<div class="flex flex-wrap gap-2 mt-auto pl-10">
+<button class="font-label-sm text-label-sm border border-outline-variant rounded-full px-3 py-1 hover:bg-surface-variant text-on-surface-variant">Find my PNR</button>
+<button class="font-label-sm text-label-sm border border-outline-variant rounded-full px-3 py-1 hover:bg-surface-variant text-on-surface-variant">Report dirty coach</button>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="p-3 bg-surface border-t border-outline-variant flex items-center gap-2" id="chat-input-area">
+<input class="flex-grow font-body-sm text-body-sm bg-surface-container-lowest border border-outline-variant rounded-full px-4 py-2 focus:ring-1 focus:ring-ai-stroke focus:border-ai-stroke outline-none" placeholder="Type your issue..." type="text">
+<button class="w-8 h-8 rounded-full bg-ai-accent text-ai-stroke flex items-center justify-center hover:bg-blue-100 transition-colors">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant w-full py-lg px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-md mt-auto z-10">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<div class="font-label-md text-label-md font-black uppercase text-primary">
+                RailMadad
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface dark:text-inverse-on-surface text-center md:text-left">
+                © 2024 Indian Railways - RailMadad AI Grievance Redressal. All Rights Reserved.
+            </p>
+</div>
+<nav class="flex flex-wrap justify-center gap-sm">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">FAQs</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Railway Admin Login</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">MIS Report Login</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Privacy Policy</a>
+</nav>
+</footer>
+<!-- Interactive Scripts -->
+<script>
+        // Demo Loader
+        function loadDemo() {
+            const descField = document.getElementById('complaint-desc');
+            const pnrField = document.getElementById('pnr-input');
+            const evidenceBox = document.getElementById('demo-evidence');
+            
+            // Populate
+            descField.value = "Water is leaking near the upper panel of window seat 42 in coach B2. It is causing the seat to get completely wet and unusable. Please send maintenance staff immediately.";
+            pnrField.value = "4123987650";
+            
+            // Show evidence
+            evidenceBox.classList.remove('hidden');
+            
+            // Optional: Highlight effect to draw attention
+            descField.classList.add('bg-ai-accent/30');
+            setTimeout(() => {
+                descField.classList.remove('bg-ai-accent/30');
+            }, 1000);
+        }
+
+        // Chatbox toggle
+        let chatOpen = true;
+        function toggleChat() {
+            const body = document.getElementById('chat-body');
+            const input = document.getElementById('chat-input-area');
+            const chevron = document.getElementById('chat-chevron');
+            
+            chatOpen = !chatOpen;
+            if(chatOpen) {
+                body.style.display = 'flex';
+                input.style.display = 'flex';
+                chevron.textContent = 'expand_more';
+            } else {
+                body.style.display = 'none';
+                input.style.display = 'none';
+                chevron.textContent = 'expand_less';
+            }
+        }
+    </script>
+
+
+</body></html>

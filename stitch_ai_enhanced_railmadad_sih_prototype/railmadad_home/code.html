@@ -1,0 +1,334 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RailMadad - Public Homepage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fbf9f8",
+                        "on-surface": "#1b1c1c",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#400106",
+                        "tertiary-fixed": "#acf1d5",
+                        "status-resolved": "#2E7D32",
+                        "on-secondary": "#ffffff",
+                        "status-emergency": "#C62828",
+                        "primary-container": "#7b2c2c",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e4e2e1",
+                        "on-error-container": "#93000a",
+                        "ai-accent": "#E3F2FD",
+                        "outline-variant": "#dbc1bf",
+                        "on-background": "#1b1c1c",
+                        "inverse-surface": "#303030",
+                        "surface-container-highest": "#e4e2e1",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#00513d",
+                        "inverse-primary": "#ffb3af",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-fixed-dim": "#ffb3af",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed-dim": "#91d4ba",
+                        "on-tertiary-fixed": "#002117",
+                        "secondary-container": "#ff668e",
+                        "inverse-on-surface": "#f3f0f0",
+                        "surface": "#fbf9f8",
+                        "secondary-fixed-dim": "#ffb1c0",
+                        "on-primary-fixed-variant": "#7b2c2c",
+                        "surface-container-high": "#eae8e7",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#554241",
+                        "on-secondary-fixed": "#3f0016",
+                        "on-primary-container": "#ff9894",
+                        "on-error": "#ffffff",
+                        "background-alt": "#F4F4F4",
+                        "surface-tint": "#9a4342",
+                        "primary-fixed": "#ffdad8",
+                        "on-tertiary-container": "#80c2a9",
+                        "ai-stroke": "#2196F3",
+                        "surface-container": "#f0eded",
+                        "on-secondary-container": "#6b002b",
+                        "primary": "#5d1618",
+                        "secondary": "#af2853",
+                        "status-pending": "#FF8F00",
+                        "secondary-fixed": "#ffd9df",
+                        "outline": "#887271",
+                        "tertiary": "#003829",
+                        "on-secondary-fixed-variant": "#8e083c",
+                        "tertiary-container": "#00513d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "base": "4px",
+                        "margin-desktop": "auto",
+                        "sm": "16px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "max-width": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased flex flex-col min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-fixed border-b border-outline-variant shadow-sm w-full sticky top-0 z-50">
+<!-- Top Utility Bar -->
+<div class="border-b border-on-primary/20 w-full bg-black/10">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-12">
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm flex items-center gap-1 opacity-90">
+<span class="material-symbols-outlined text-[16px]">phone_in_talk</span>
+                        Emergency: 139
+                    </span>
+<span class="font-label-sm text-label-sm hidden md:block opacity-75">
+                        A Grievance Redressal Mechanism
+                    </span>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-sm text-label-sm hover:opacity-80 transition-opacity">Language</button>
+<button class="font-label-sm text-label-sm bg-on-primary text-primary px-3 py-1 rounded hover:bg-on-primary/90 transition-colors" onclick="document.getElementById('loginModal').classList.remove('hidden')">
+                        Login / Sign Up
+                    </button>
+</div>
+</div>
+</div>
+<!-- Main Nav Bar -->
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-16">
+<!-- Logo -->
+<div class="flex items-center gap-3 font-headline-lg text-headline-lg font-bold text-on-primary">
+<span class="material-symbols-outlined text-3xl">train</span>
+                RailMadad
+            </div>
+<!-- Nav Links (Desktop) -->
+<nav class="hidden md:flex h-full items-end">
+<a class="h-full px-4 flex items-center text-on-primary border-b-2 border-on-primary pb-1 font-label-md text-label-md hover:bg-primary-container/20 transition-colors opacity-90 scale-95" href="#">
+                    Train Complaints
+                </a>
+<a class="h-full px-4 flex items-center text-on-primary/80 hover:text-on-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors" href="#">
+                    Station Complaints
+                </a>
+<a class="h-full px-4 flex items-center text-on-primary/80 hover:text-on-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors" href="#">
+                    Rail Anubhav
+                </a>
+<a class="h-full px-4 flex items-center text-on-primary/80 hover:text-on-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors" href="#">
+                    Track Concern
+                </a>
+<a class="h-full px-4 flex items-center text-on-primary/80 hover:text-on-primary font-label-md text-label-md hover:bg-primary-container/20 transition-colors" href="#">
+                    Suggestions
+                </a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-primary-container/20 rounded-full transition-colors text-on-primary/80 hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-primary-container/20 rounded-full transition-colors text-on-primary/80 hover:text-on-primary">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden p-2 text-on-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-md md:py-lg flex flex-col gap-xl">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter md:gap-lg w-full">
+<div class="flex flex-col justify-center gap-4">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Intelligent Grievance Resolution</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                    Report issues quickly and let our intelligent system route them to the correct department for faster resolution.
+                </p>
+<div class="flex items-center gap-2 mt-2 p-3 bg-ai-accent border border-ai-stroke rounded text-[#1565C0]">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md">AI-assisted complaint understanding, prioritization and smart routing.</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<!-- Train Complaint Card -->
+<a class="group relative block p-6 bg-surface border border-[#E0E0E0] rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all overflow-hidden flex flex-col items-center text-center gap-4" href="#">
+<div class="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary relative z-10">
+<span class="material-symbols-outlined text-3xl">train</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface relative z-10">Train Complaint</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant relative z-10">Report issues related to amenities, cleanliness, or staff on board.</p>
+</a>
+<!-- Station Complaint Card -->
+<a class="group relative block p-6 bg-surface border border-[#E0E0E0] rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all overflow-hidden flex flex-col items-center text-center gap-4" href="#">
+<div class="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary relative z-10">
+<span class="material-symbols-outlined text-3xl">domain</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface relative z-10">Station Complaint</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant relative z-10">Report issues related to station facilities, ticketing, or security.</p>
+</a>
+</div>
+</section>
+<!-- Secondary Actions Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter w-full">
+<!-- Track Concern -->
+<div class="bg-surface border border-[#E0E0E0] rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">search</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Track your Concern</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Enter your Reference Number (PNR/Mobile) to check the status.</p>
+<form class="flex flex-col gap-3 mt-auto">
+<input class="w-full font-body-sm text-body-sm border-outline-variant rounded px-3 py-2 focus:ring-primary focus:border-primary bg-background-alt" placeholder="Reference Number" type="text">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-2 rounded hover:bg-primary/90 transition-colors" type="button">
+                        Check Status
+                    </button>
+</form>
+</div>
+<!-- Suggestions -->
+<div class="bg-surface border border-[#E0E0E0] rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Your Suggestions</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Help us improve Indian Railways. Share your ideas and feedback.</p>
+<a class="mt-auto w-full border border-primary text-primary font-label-md text-label-md py-2 rounded flex justify-center items-center hover:bg-primary/5 transition-colors" href="#">
+                    Submit Suggestion
+                </a>
+</div>
+<!-- FAQs -->
+<div class="bg-surface border border-[#E0E0E0] rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.05)] p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">help_outline</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">FAQs</h3>
+</div>
+<ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-3 mb-2">
+<li class=""><a class="hover:text-primary hover:underline flex items-center justify-between" href="#">How to register a complaint? <span class="material-symbols-outlined text-sm">chevron_right</span></a></li>
+<li class=""><a class="hover:text-primary hover:underline flex items-center justify-between" href="#">What is Rail Anubhav? <span class="material-symbols-outlined text-sm">chevron_right</span></a></li>
+<li class=""><a class="hover:text-primary hover:underline flex items-center justify-between" href="#">Escalation matrix <span class="material-symbols-outlined text-sm">chevron_right</span></a></li>
+</ul>
+<a class="mt-auto w-full text-center text-primary font-label-md text-label-md hover:underline" href="#">
+                    View All FAQs
+                </a>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface text-on-surface dark:text-inverse-on-surface border-t border-outline-variant mt-auto">
+<div class="w-full py-lg px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between gap-8 md:gap-4 items-start md:items-center">
+<div class="flex flex-col gap-2">
+<div class="font-label-md text-label-md font-black uppercase text-primary tracking-wider">
+                    Ministry of Railways
+                </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+                    © 2024 Indian Railways - RailMadad AI Grievance Redressal. All Rights Reserved.
+                </div>
+</div>
+<nav class="flex flex-wrap gap-x-6 gap-y-2 font-label-sm text-label-sm">
+<a class="text-primary font-bold underline opacity-80 transition-all hover:underline" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:underline" href="#">FAQs</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:underline" href="#">Railway Admin Login</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:underline" href="#">MIS Report Login</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:underline" href="#">Privacy Policy</a>
+</nav>
+</div>
+</footer>
+<!-- AI Floating Action Button -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-ai-accent text-[#1565C0] rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] flex items-center justify-center hover:scale-105 transition-transform z-40 border border-ai-stroke">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<!-- Login Modal (Hidden by default) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" id="loginModal">
+<div class="bg-surface rounded-lg shadow-[0_12px_24px_rgba(0,0,0,0.2)] w-full max-w-md border border-[#E0E0E0] overflow-hidden flex flex-col">
+<div class="flex justify-between items-center p-4 border-b border-outline-variant bg-surface-container-low">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Login / Sign Up</h2>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('loginModal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-6 flex flex-col gap-4">
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center mb-2">Select your user type to proceed</p>
+<a class="flex items-center gap-4 p-4 border border-outline-variant rounded hover:border-primary hover:bg-primary/5 transition-colors group" href="#">
+<div class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Passenger</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Report issues, track status</div>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 p-4 border border-outline-variant rounded hover:border-primary hover:bg-primary/5 transition-colors group" href="#">
+<div class="w-10 h-10 rounded bg-surface-variant text-on-surface-variant flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Railway Staff</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Respond to assigned tasks</div>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 p-4 border border-outline-variant rounded hover:border-primary hover:bg-primary/5 transition-colors group" href="#">
+<div class="w-10 h-10 rounded bg-surface-variant text-on-surface-variant flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Railway Admin</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">View reports, manage system</div>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<script>
+        // Simple click outside to close modal
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+    </script>
+
+
+</body></html>
