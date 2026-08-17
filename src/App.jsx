@@ -42,7 +42,7 @@ export default function App() {
           <Routes>
             {/* Public Layout */}
             <Route path="/" element={<MainLayout />}>
-              <Route index element={<HomePage />} />
+              <Route index element={<LoginPage />} />
               <Route path="login" element={<LoginPage />} />
 
               {/* Passenger Protected Routes */}
