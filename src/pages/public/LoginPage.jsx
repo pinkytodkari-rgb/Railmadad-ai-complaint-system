@@ -87,7 +87,7 @@ export default function LoginPage() {
             <span class="material-symbols-outlined text-3xl text-primary group-hover:text-on-primary-container">admin_panel_settings</span>
           </div>
           <h2 class="font-bold text-lg text-on-surface mb-1">Railway Admin</h2>
-          <p class="text-xs text-on-surface-variant">For supervisors to view MIS reports, AI insights, and system settings.</p>
+          <p class="text-xs text-on-surface-variant">For supervisors to view MIS reports, analytics and system settings.</p>
         </button>
       </div>
 

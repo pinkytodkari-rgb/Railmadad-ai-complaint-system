@@ -8,8 +8,8 @@ export default function SentimentPage() {
     <div class="w-full flex flex-col gap-6">
       <div class="flex justify-between items-center border-b border-outline-variant/60 pb-4">
         <div>
-          <h1 class="font-bold text-2xl text-on-surface">NLP Passenger Sentiment Analysis</h1>
-          <p class="text-xs text-on-surface-variant">Automated sentiment evaluation across 10,000+ passenger feedback submissions</p>
+          <h1 class="font-bold text-2xl text-on-surface">Passenger Sentiment Analysis</h1>
+          <p class="text-xs text-on-surface-variant">Sentiment evaluation across 10,000+ passenger feedback submissions</p>
         </div>
       </div>
 
@@ -46,11 +46,11 @@ export default function SentimentPage() {
         </div>
       </div>
 
-      {/* AI Sentiment Summary Box */}
+      {/* Feedback Insights Box */}
       <div class="bg-ai-accent/30 border border-ai-stroke rounded-xl p-6 shadow-xs flex items-start gap-4">
         <span class="material-symbols-outlined text-ai-stroke text-2xl">psychology_alt</span>
         <div class="text-xs text-on-surface leading-relaxed">
-          <strong class="font-bold text-sm block mb-1">AI Sentiment Insight Summary:</strong>
+          <strong class="font-bold text-sm block mb-1">Feedback Insight Summary:</strong>
           "{analytics.sentiment.summary}"
         </div>
       </div>

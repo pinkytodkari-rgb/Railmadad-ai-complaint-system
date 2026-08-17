@@ -24,7 +24,7 @@ export default function AiFloatingChat() {
           ...prev,
           {
             sender: 'ai',
-            text: 'I detected a water leakage report. I can automatically pre-fill your PNR details and attach the evidence photo for fast tracking!'
+            text: 'It looks like you may be reporting a water leakage issue. I can pre-fill your PNR details and attach the evidence photo to speed up registration!'
           }
         ]);
         loadDemoComplaint();
@@ -33,7 +33,7 @@ export default function AiFloatingChat() {
           ...prev,
           {
             sender: 'ai',
-            text: 'I have logged your request. You can also upload photos/audio for automated verification.'
+            text: 'Your request has been noted. You can also upload photos or audio as supporting evidence.'
           }
         ]);
       }
@@ -47,9 +47,9 @@ export default function AiFloatingChat() {
         <button
           onClick={() => setIsOpen(true)}
           class="fixed bottom-6 right-6 w-14 h-14 bg-ai-accent text-ai-stroke rounded-full shadow-[0_4px_16px_rgba(33,150,243,0.3)] flex items-center justify-center hover:scale-105 transition-all z-40 border border-ai-stroke group"
-          title="RailMadad AI Support"
+          title="RailMadad Support"
         >
-          <span class="material-symbols-outlined text-2xl icon-fill">smart_toy</span>
+          <span class="material-symbols-outlined text-2xl icon-fill">support_agent</span>
           <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-status-resolved rounded-full border-2 border-white"></span>
         </button>
       )}
@@ -63,8 +63,8 @@ export default function AiFloatingChat() {
             class="bg-primary px-4 py-3 flex justify-between items-center cursor-pointer text-on-primary"
           >
             <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined icon-fill text-tertiary-fixed">smart_toy</span>
-              <span class="font-bold text-sm">RailMadad AI Assistant</span>
+              <span class="material-symbols-outlined icon-fill text-tertiary-fixed">support_agent</span>
+              <span class="font-bold text-sm">RailMadad Support</span>
             </div>
             <button class="text-on-primary/80 hover:text-on-primary">
               <span class="material-symbols-outlined">expand_more</span>
@@ -80,7 +80,7 @@ export default function AiFloatingChat() {
               >
                 {m.sender === 'ai' && (
                   <div class="w-7 h-7 rounded-full bg-ai-accent flex items-center justify-center flex-shrink-0 border border-ai-stroke text-ai-stroke">
-                    <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+                    <span class="material-symbols-outlined text-[16px]">support_agent</span>
                   </div>
                 )}
                 <div
@@ -127,7 +127,7 @@ export default function AiFloatingChat() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask AI Support..."
+              placeholder="Ask RailMadad Support..."
               class="flex-grow text-xs bg-surface-container-lowest border border-outline-variant rounded-full px-3 py-1.5 focus:ring-1 focus:ring-ai-stroke outline-none"
             />
             <button

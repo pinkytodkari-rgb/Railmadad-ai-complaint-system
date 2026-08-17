@@ -63,7 +63,7 @@ export function ComplaintProvider({ children }) {
       },
       timeline: prev.timeline.map((step) => {
         if (step.title === "Action In Progress") return { ...step, completed: true, time: "Completed at Surat" };
-        if (step.title === "Resolution Verification") return { ...step, completed: true, time: "AI Verified (87% confidence)" };
+        if (step.title === "Resolution Verification") return { ...step, completed: true, time: "Verified (87% confidence)" };
         return step;
       })
     }));

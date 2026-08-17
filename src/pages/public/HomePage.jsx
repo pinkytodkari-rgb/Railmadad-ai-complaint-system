@@ -25,9 +25,9 @@ export default function HomePage() {
             Report issues quickly and let our intelligent system route them to the correct department for faster resolution.
           </p>
           <div class="flex items-center gap-2 mt-2 p-3 bg-ai-accent border border-ai-stroke rounded-lg text-[#1565C0]">
-            <span class="material-symbols-outlined">smart_toy</span>
+            <span class="material-symbols-outlined">assignment</span>
             <span class="font-medium text-xs md:text-sm">
-              AI-assisted complaint understanding, prioritization and smart routing.
+              Complaints are reviewed, prioritised and routed to the correct department for prompt resolution.
             </span>
           </div>
         </div>

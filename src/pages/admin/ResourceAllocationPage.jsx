@@ -7,7 +7,7 @@ export default function ResourceAllocationPage() {
 
   const handleRebalance = () => {
     setRebalanced(true);
-    alert("AI Workload Balancing executed: 2 staff re-assigned from Housekeeping to Water & Sanitation.");
+    alert("Workload Balancing executed: 2 staff re-assigned from Housekeeping to Water & Sanitation.");
   };
 
   return (
@@ -22,15 +22,15 @@ export default function ResourceAllocationPage() {
           class="bg-primary text-on-primary font-bold text-xs px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors shadow-xs flex items-center gap-1.5"
         >
           <span class="material-symbols-outlined text-base">auto_fix_high</span>
-          {rebalanced ? 'Rebalanced ✓' : 'Execute AI Rebalancing'}
+          {rebalanced ? 'Rebalanced ✓' : 'Execute Rebalancing'}
         </button>
       </div>
 
-      {/* AI Recommendation Banner */}
+      {/* Recommendation Banner */}
       <div class="bg-ai-accent/40 border border-ai-stroke rounded-xl p-5 shadow-xs flex items-start gap-4 text-xs">
-        <span class="material-symbols-outlined text-ai-stroke text-2xl">smart_toy</span>
+        <span class="material-symbols-outlined text-ai-stroke text-2xl">tips_and_updates</span>
         <div class="flex-grow">
-          <strong class="font-bold text-sm text-on-surface block mb-1">AI Optimal Allocation Recommendation:</strong>
+          <strong class="font-bold text-sm text-on-surface block mb-1">Recommended Allocation:</strong>
           "Additional Water & Sanitation staff are recommended for the current leakage incident cluster in Coach S5 along the Western/Northern Corridor."
         </div>
       </div>

@@ -26,7 +26,7 @@ export default function TrackComplaintPage() {
           </span>
         </div>
         <p class="text-xs md:text-sm text-on-surface-variant">
-          View real-time status and AI resolution verification of your registered grievance.
+          View real-time status and resolution verification of your registered grievance.
         </p>
       </div>
 
@@ -59,15 +59,15 @@ export default function TrackComplaintPage() {
             </div>
           </div>
 
-          {/* AI Initial Analysis Summary */}
+          {/* Analysis Summary */}
           <div class="bg-ai-accent/30 border border-ai-stroke rounded-xl p-5 relative overflow-hidden flex flex-col gap-2">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-ai-stroke"></div>
             <div class="flex items-center gap-2 text-ai-stroke font-bold text-xs uppercase tracking-wider">
               <span class="material-symbols-outlined text-base">psychology</span>
-              AI Initial Analysis Summary
+              Analysis Summary
             </div>
             <p class="text-xs text-on-surface leading-relaxed">
-              Automated routing identified this as an infrastructure issue within the rolling stock. Priority escalated to <strong>High</strong> due to potential passenger discomfort during transit. Feasibility computed for Surat Station stop.
+              This issue has been identified as an infrastructure problem within the rolling stock. Priority has been escalated to <strong>High</strong> due to potential passenger discomfort during transit. Intervention has been scheduled for the Surat Station stop.
             </p>
           </div>
 

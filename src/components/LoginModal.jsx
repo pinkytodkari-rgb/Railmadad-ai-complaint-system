@@ -50,7 +50,7 @@ export default function LoginModal({ isOpen, onClose }) {
             </div>
             <div>
               <div class="font-semibold text-sm text-on-surface">Passenger Portal</div>
-              <div class="text-xs text-on-surface-variant">Lodge grievances, AI analysis, track status</div>
+              <div class="text-xs text-on-surface-variant">Lodge grievances, track status and get resolution updates</div>
             </div>
             <span class="material-symbols-outlined ml-auto text-outline-variant group-hover:text-primary">chevron_right</span>
           </button>

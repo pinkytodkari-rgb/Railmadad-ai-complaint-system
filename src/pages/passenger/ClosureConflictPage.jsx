@@ -72,7 +72,7 @@ export default function ClosureConflictPage() {
 
       {/* Escalation Options */}
       <div class="bg-surface border border-outline-variant rounded-xl p-6 shadow-xs flex flex-col gap-4">
-        <h3 class="font-bold text-base text-on-surface">Automated Action Pathways</h3>
+        <h3 class="font-bold text-base text-on-surface">Escalation Options</h3>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <button

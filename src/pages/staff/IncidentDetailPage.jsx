@@ -26,7 +26,7 @@ export default function IncidentDetailPage() {
       checklist: Object.keys(checklist).filter((k) => checklist[k]),
       afterPhotoUrl: REPAIRED_IMAGE
     });
-    alert("Resolution evidence submitted! AI Verification status set to 87% Confidence.");
+    alert("Resolution evidence submitted! Verification status set to 87% Confidence.");
     navigate('/staff');
   };
 
@@ -217,7 +217,7 @@ export default function IncidentDetailPage() {
           </form>
         </div>
 
-        {/* Right Column (4 cols): AI Verification & Feasibility */}
+        {/* Right Column (4 cols): Verification & Feasibility */}
         <div class="lg:col-span-4 flex flex-col gap-6">
           {/* Opportunity-Aware Feasibility */}
           <div class="bg-surface rounded-xl border border-outline-variant shadow-xs overflow-hidden">
@@ -241,11 +241,11 @@ export default function IncidentDetailPage() {
             </div>
           </div>
 
-          {/* AI Resolution Verification Metric Card */}
+          {/* Resolution Verification Card */}
           <div class="bg-ai-accent/30 border border-ai-stroke rounded-xl p-5 shadow-xs flex flex-col gap-3">
             <div class="flex items-center gap-2 text-ai-stroke font-bold text-xs">
               <span class="material-symbols-outlined text-base">verified</span>
-              AI Resolution Verification Protocol
+              Resolution Verification Checklist
             </div>
             <ul class="text-xs text-on-surface flex flex-col gap-1.5">
               <li class="flex items-center gap-1.5 text-status-resolved font-medium">
@@ -259,7 +259,7 @@ export default function IncidentDetailPage() {
               </li>
             </ul>
             <div class="pt-2 border-t border-ai-stroke/30 flex justify-between items-center text-xs">
-              <span class="text-on-surface-variant font-medium">AI Verification Score:</span>
+              <span class="text-on-surface-variant font-medium">Verification Score:</span>
               <span class="font-bold text-sm text-ai-stroke">87% Confidence</span>
             </div>
           </div>

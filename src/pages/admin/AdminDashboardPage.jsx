@@ -10,11 +10,11 @@ export default function AdminDashboardPage() {
     <div class="flex flex-col gap-6">
       {/* Overview Metrics Grid */}
       <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* AI Classification Accuracy */}
+        {/* Classification Accuracy */}
         <div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-xs flex flex-col gap-1 relative overflow-hidden">
           <div class="absolute top-0 left-0 w-1.5 h-full bg-ai-stroke"></div>
           <div class="flex justify-between items-center text-on-surface-variant">
-            <span class="text-xs font-bold uppercase tracking-wider">AI Classification Accuracy</span>
+            <span class="text-xs font-bold uppercase tracking-wider">Classification Accuracy</span>
             <div class="w-8 h-8 rounded-full bg-ai-accent flex items-center justify-center">
               <span class="material-symbols-outlined text-ai-stroke text-base">psychology</span>
             </div>
@@ -29,7 +29,7 @@ export default function AdminDashboardPage() {
         <div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-xs flex flex-col gap-1 relative overflow-hidden">
           <div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
           <div class="flex justify-between items-center text-on-surface-variant">
-            <span class="text-xs font-bold uppercase tracking-wider">Smart Routing Accuracy</span>
+            <span class="text-xs font-bold uppercase tracking-wider">Routing Accuracy</span>
             <div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center">
               <span class="material-symbols-outlined text-primary text-base">route</span>
             </div>
@@ -92,7 +92,7 @@ export default function AdminDashboardPage() {
           <div class="flex justify-between items-start mb-2">
             <div>
               <h3 class="font-bold text-lg text-on-surface">Sentiment Analysis</h3>
-              <p class="text-xs text-on-surface-variant">NLP evaluation of passenger reports</p>
+              <p class="text-xs text-on-surface-variant">Evaluation of passenger feedback submissions</p>
             </div>
             <span class="material-symbols-outlined text-ai-stroke">psychology_alt</span>
           </div>
@@ -149,7 +149,7 @@ export default function AdminDashboardPage() {
                 </span>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed mb-3">
-                NLP analysis has identified a <strong class="text-on-surface">Water Leakage Trend</strong> isolated to <strong class="text-on-surface">Coach S5</strong> across Northern Zone outbound trains. <strong>12 independent incidents</strong> reported in the last 30 days.
+                Review has identified a <strong class="text-on-surface">Water Leakage Trend</strong> isolated to <strong class="text-on-surface">Coach S5</strong> across Northern Zone outbound trains. <strong>12 independent incidents</strong> reported in the last 30 days.
               </p>
               <div class="text-xs text-tertiary-container bg-tertiary-fixed/40 px-3 py-1.5 rounded-lg border border-tertiary-fixed-dim/50 font-medium inline-flex items-center gap-2">
                 <span class="material-symbols-outlined text-sm">build_circle</span>

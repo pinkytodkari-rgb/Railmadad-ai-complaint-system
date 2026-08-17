@@ -16,6 +16,14 @@ export const INITIAL_COMPLAINT_DATA = {
   category: "Coach Maintenance / Water & Sanitation",
   urgency: "High",
   confidence: 91,
+  claimDetected: "Water leaking near upper panel of window berth 42 in Coach S5",
+  extractedEntities: [
+    { label: "Train", value: "12951 Rajdhani Express", icon: "train" },
+    { label: "Coach", value: "S5", icon: "directions_railway" },
+    { label: "Issue", value: "Water Leakage", icon: "water_damage" },
+    { label: "Berth", value: "Berth 42", icon: "airline_seat_recline_normal" },
+    { label: "Location", value: "Upper Panel / Window", icon: "location_on" }
+  ],
   description: "Water is leaking near the upper panel of window seat 42 in coach S5. It is causing the seat to get completely wet and unusable. Please send maintenance staff immediately.",
   evidence: {
     textSubmitted: true,
@@ -49,7 +57,7 @@ export const INITIAL_COMPLAINT_DATA = {
   },
   timeline: [
     { title: "Complaint Registered", time: "Oct 24, 14:30 IST", completed: true },
-    { title: "AI Analysis Completed", time: "Oct 24, 14:31 IST", completed: true },
+    { title: "Analysis Completed", time: "Oct 24, 14:31 IST", completed: true },
     { title: "Evidence Validated", time: "Oct 24, 14:32 IST", completed: true },
     { title: "Incident Linked (INC-104)", time: "Oct 24, 14:35 IST", completed: true },
     { title: "Routed to Department", time: "Oct 24, 14:40 IST", completed: true },

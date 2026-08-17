@@ -2,189 +2,213 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useComplaint } from '../../context/ComplaintContext';
 
+// ─── Detail row used inside the summary card ────────────────────────────────
+function DetailRow({ icon, label, value, valueClass = '' }) {
+  return (
+    <div className="flex items-start gap-3 py-3 border-b border-outline-variant/40 last:border-0">
+      <div className="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 mt-0.5">
+        <span className="material-symbols-outlined text-[16px] text-primary">{icon}</span>
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-[10px] font-extrabold uppercase tracking-widest text-on-surface-variant mb-0.5">{label}</p>
+        <p className={`text-sm font-bold text-on-surface leading-snug ${valueClass}`}>{value}</p>
+      </div>
+    </div>
+  );
+}
+
+// ─── Status badge ────────────────────────────────────────────────────────────
+function StatusBadge({ label, color }) {
+  const colors = {
+    green:  'bg-status-resolved/10 text-status-resolved border-status-resolved/30',
+    red:    'bg-status-emergency/10 text-status-emergency border-status-emergency/30',
+    amber:  'bg-status-pending/10 text-status-pending border-status-pending/30',
+  };
+  return (
+    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border font-extrabold text-xs ${colors[color] ?? colors.green}`}>
+      <span className="w-1.5 h-1.5 rounded-full bg-current" />
+      {label}
+    </span>
+  );
+}
+
+// ─── Main Page ───────────────────────────────────────────────────────────────
 export default function AiAnalysisPage() {
   const { complaint } = useComplaint();
   const navigate = useNavigate();
+  const handleConfirmAndTrack = () => navigate('/passenger/track');
 
-  const handleConfirmAndTrack = () => {
-    navigate('/passenger/track');
-  };
+  const submittedEvidence = [
+    complaint.evidence.textSubmitted  && 'Text',
+    complaint.evidence.imageSubmitted && 'Image',
+    complaint.evidence.audioSubmitted && 'Audio',
+    complaint.evidence.videoSubmitted && 'Video',
+  ].filter(Boolean);
 
   return (
-    <div class="w-full flex flex-col gap-6">
-      {/* Header Section */}
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-outline-variant/60 pb-4">
-        <div>
-          <h1 class="font-extrabold text-2xl md:text-3xl text-on-surface">AI Analysis Report</h1>
-          <p class="text-xs md:text-sm text-on-surface-variant mt-1">
-            Incident Reference: <span class="font-bold text-primary">{complaint.incidentId}</span> • Complaint ID: {complaint.complaintId}
-          </p>
-        </div>
+    <div className="w-full flex flex-col gap-0">
 
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 rounded-full bg-ai-accent text-ai-stroke font-bold text-xs border border-ai-stroke/40 flex items-center gap-1">
-            <span class="material-symbols-outlined text-[16px]">psychology</span>
-            AI Processed
-          </span>
-          <span class="px-3 py-1 rounded-full bg-status-emergency/10 text-status-emergency font-bold text-xs border border-status-emergency/30 flex items-center gap-1">
-            <span class="material-symbols-outlined text-[16px]">warning</span>
-            High Urgency
-          </span>
+      {/* ── Hero Header ─────────────────────────────────────────────────────── */}
+      <div className="relative bg-gradient-to-br from-[#0d2b4e] via-[#133a66] to-[#1a4f8a] rounded-2xl p-6 mb-5 overflow-hidden">
+        <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 w-32 h-24 rounded-full bg-white/5 blur-2xl pointer-events-none" />
+
+        <div className="relative flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                <span className="material-symbols-outlined text-white text-[20px]">task_alt</span>
+              </div>
+              <span className="text-[11px] font-extrabold tracking-[0.15em] text-blue-200/80 uppercase">
+                Complaint Assessment
+              </span>
+            </div>
+            <h1 className="font-black text-2xl md:text-3xl text-white leading-tight">Assessment Complete</h1>
+            <p className="text-sm text-blue-200/70 mt-1">
+              Ref:&nbsp;<span className="text-white font-bold">{complaint.incidentId}</span>
+              &nbsp;•&nbsp;<span className="font-semibold">{complaint.complaintId}</span>
+            </p>
+          </div>
+
+          <div className="flex gap-3 flex-wrap">
+            <div className="bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-center min-w-[76px]">
+              <p className="font-black text-2xl text-white leading-none">
+                {[complaint.evidence.textSubmitted, complaint.evidence.imageSubmitted,
+                  complaint.evidence.audioSubmitted, complaint.evidence.videoSubmitted].filter(Boolean).length}
+              </p>
+              <p className="text-[10px] text-blue-200/70 font-semibold mt-0.5">Evidence</p>
+            </div>
+            <div className="bg-red-900/40 border border-red-400/30 rounded-xl px-4 py-2.5 text-center min-w-[76px]">
+              <p className="font-black text-sm text-red-200 leading-none pt-1">HIGH</p>
+              <p className="text-[10px] text-red-300/70 font-semibold mt-0.5">Priority</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Grid Layout */}
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left Column */}
-        <div class="lg:col-span-8 flex flex-col gap-6">
-          {/* Detected Issue Card */}
-          <div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-xs relative overflow-hidden">
-            <div class="absolute top-4 right-4 flex flex-col items-end">
-              <span class="font-black text-2xl text-ai-stroke">{complaint.confidence}%</span>
-              <span class="text-[11px] text-on-surface-variant font-medium">Confidence Score</span>
-            </div>
+      {/* ── Main Grid ───────────────────────────────────────────────────────── */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
 
-            <h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Detected Issue</h3>
-            <div class="font-black text-2xl text-on-surface mb-4">{complaint.issue}</div>
+        {/* ── LEFT — Complaint Summary Card ────────────────────────────────── */}
+        <div className="lg:col-span-8 flex flex-col gap-5">
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-outline-variant/40">
-              <div>
-                <p class="text-xs text-on-surface-variant font-medium">Primary Department Category</p>
-                <p class="text-sm font-bold text-on-surface flex items-center gap-2 mt-1">
-                  <span class="material-symbols-outlined text-primary text-[18px]">build</span>
-                  {complaint.category}
-                </p>
-              </div>
-              <div>
-                <p class="text-xs text-on-surface-variant font-medium">Affected Area</p>
-                <p class="text-sm font-bold text-on-surface flex items-center gap-2 mt-1">
-                  <span class="material-symbols-outlined text-primary text-[18px]">water_drop</span>
-                  Upper Panel / Window Berth 42
-                </p>
-              </div>
+          {/* Confirmation banner */}
+          <div className="bg-status-resolved/8 border border-status-resolved/30 rounded-2xl px-5 py-4 flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-status-resolved/15 flex items-center justify-center flex-shrink-0">
+              <span className="material-symbols-outlined text-status-resolved text-[20px]">check_circle</span>
             </div>
+            <p className="text-sm font-semibold text-on-surface">
+              Your complaint has been assessed and routed to the appropriate team.
+            </p>
           </div>
 
-          {/* Evidence Consistency Check */}
-          <div class="bg-ai-accent/20 rounded-xl p-6 border border-ai-stroke shadow-xs relative">
-            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-ai-stroke rounded-l-xl"></div>
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="font-bold text-lg text-on-surface flex items-center gap-2">
-                <span class="material-symbols-outlined text-ai-stroke">fact_check</span>
-                Evidence Consistency Check
-              </h3>
-              <div class="px-3 py-1 bg-status-resolved/10 text-status-resolved rounded-full font-bold text-xs border border-status-resolved/30 flex items-center gap-1">
-                <span class="material-symbols-outlined text-[16px]">check_circle</span>
-                {complaint.consistency.overall}
-              </div>
+          {/* Summary details */}
+          <div className="bg-surface rounded-2xl border border-outline-variant shadow-xs overflow-hidden">
+            <div className="bg-surface-container-low px-5 py-3 border-b border-outline-variant">
+              <h2 className="font-bold text-sm uppercase tracking-wider text-on-surface">Complaint Summary</h2>
             </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {/* Text Check */}
-              <div class="bg-surface rounded-lg p-3 border border-outline-variant flex flex-col gap-1">
-                <span class="text-[11px] font-semibold text-on-surface-variant">Passenger Text</span>
-                <div class="flex items-center gap-1.5 text-status-resolved font-bold text-xs">
-                  <span class="material-symbols-outlined text-base">check</span>
-                  {complaint.consistency.passengerText}
+            <div className="px-5 divide-y divide-outline-variant/40">
+              <DetailRow icon="report_problem"   label="Issue Identified"    value={complaint.issue} />
+              <DetailRow icon="train"             label="Train"               value={complaint.train} />
+              {complaint.coach && (
+                <DetailRow icon="directions_railway" label="Coach"           value={`Coach ${complaint.coach}${complaint.berth ? ` · Berth ${complaint.berth}` : ''}`} />
+              )}
+              <DetailRow
+                icon="attach_file"
+                label="Evidence Submitted"
+                value={submittedEvidence.length > 0 ? submittedEvidence.join(' + ') : 'None'}
+              />
+              <div className="flex items-start gap-3 py-3 border-b border-outline-variant/40 last:border-0">
+                <div className="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="material-symbols-outlined text-[16px] text-primary">fact_check</span>
                 </div>
-                <p class="text-xs text-on-surface mt-1 italic">
-                  "{complaint.description.slice(0, 60)}..."
-                </p>
-              </div>
-
-              {/* Image Check */}
-              <div class="bg-surface rounded-lg p-3 border border-outline-variant flex flex-col gap-1">
-                <span class="text-[11px] font-semibold text-on-surface-variant">Image Analysis</span>
-                <div class="flex items-center gap-1.5 text-status-resolved font-bold text-xs">
-                  <span class="material-symbols-outlined text-base">check</span>
-                  {complaint.consistency.imageAnalysis}
-                </div>
-                <div class="h-10 w-16 bg-surface-variant rounded mt-1 overflow-hidden border border-outline-variant">
-                  <img
-                    src={complaint.evidence.imageUrl}
-                    alt="Leakage preview"
-                    class="w-full h-full object-cover"
+                <div className="flex-1 flex items-center justify-between min-w-0 flex-wrap gap-2 pt-1">
+                  <p className="text-[10px] font-extrabold uppercase tracking-widest text-on-surface-variant">Evidence Status</p>
+                  <StatusBadge
+                    label={complaint.consistency.overall}
+                    color={complaint.consistency.overall === 'SUPPORTED' ? 'green' : complaint.consistency.overall === 'CONTRADICTED' ? 'red' : 'amber'}
                   />
                 </div>
               </div>
-
-              {/* Railway Context Check */}
-              <div class="bg-surface rounded-lg p-3 border border-outline-variant flex flex-col gap-1">
-                <span class="text-[11px] font-semibold text-on-surface-variant">Railway Context</span>
-                <div class="flex items-center gap-1.5 text-status-resolved font-bold text-xs">
-                  <span class="material-symbols-outlined text-base">verified</span>
-                  {complaint.consistency.railwayContext}
+              <div className="flex items-start gap-3 py-3 border-b border-outline-variant/40 last:border-0">
+                <div className="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="material-symbols-outlined text-[16px] text-primary">priority_high</span>
                 </div>
-                <p class="text-[11px] text-on-surface mt-1">
-                  {complaint.consistency.contextDetail}
-                </p>
+                <div className="flex-1 flex items-center justify-between min-w-0 flex-wrap gap-2 pt-1">
+                  <p className="text-[10px] font-extrabold uppercase tracking-widest text-on-surface-variant">Priority</p>
+                  <StatusBadge label="High" color="red" />
+                </div>
               </div>
+              <DetailRow icon="groups"     label="Related Complaints"  value={`${complaint.clusterCount} other reports linked to this incident`} />
+              <DetailRow icon="tag"        label="Incident Reference"  value={complaint.incidentId} />
+              <DetailRow icon="build"      label="Assigned Team"       value={complaint.smartRouting.recommendedDepartment} />
             </div>
           </div>
 
-          {/* Railway Context Card */}
-          <div class="bg-surface rounded-xl p-6 border border-outline-variant shadow-xs flex flex-col sm:flex-row gap-6 items-center">
-            <div class="flex-1">
-              <h3 class="font-bold text-lg text-on-surface mb-3 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">train</span>
-                Verified Railway Context
-              </h3>
-              <div class="grid grid-cols-2 gap-y-3 gap-x-4 text-xs">
-                <div>
-                  <p class="text-on-surface-variant">Train</p>
-                  <p class="font-bold text-on-surface">{complaint.train}</p>
-                </div>
-                <div>
-                  <p class="text-on-surface-variant">Coach & Berth</p>
-                  <p class="font-bold text-on-surface">Coach {complaint.coach} • Berth {complaint.berth}</p>
-                </div>
-                <div class="col-span-2">
-                  <p class="text-on-surface-variant">Current Location Status</p>
-                  <div class="flex items-center gap-2 mt-1">
-                    <span class="w-2.5 h-2.5 rounded-full bg-status-resolved animate-pulse"></span>
-                    <p class="font-medium text-on-surface">{complaint.currentLocation}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Right Column: Related Complaints & Routing */}
-        <div class="lg:col-span-4 flex flex-col gap-6">
-          {/* Cluster Alert */}
-          <div class="bg-surface rounded-xl p-5 border border-outline-variant shadow-xs">
-            <h3 class="font-bold text-base text-on-surface mb-2 flex items-center gap-2">
-              <span class="material-symbols-outlined text-secondary">groups</span>
-              Cluster Alert Detected
-            </h3>
-            <p class="text-xs text-on-surface mb-3">
-              <strong class="text-secondary">{complaint.relatedComplaints.length} other passengers</strong> reported Water Leakage in Coach S5 within the last 14 minutes.
-            </p>
-            <div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant flex items-center justify-between text-xs">
-              <span class="text-on-surface-variant">Incident Linked:</span>
-              <span class="font-bold text-primary underline">{complaint.incidentId}</span>
+        {/* ── RIGHT — Routing + CTA (unchanged) ───────────────────────────── */}
+        <div className="lg:col-span-4 flex flex-col gap-5">
+
+          {/* Assigned dept card */}
+          <div className="bg-surface rounded-2xl p-5 border border-outline-variant shadow-xs">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                <span className="material-symbols-outlined text-[17px] text-primary">hub</span>
+              </div>
+              <div>
+                <p className="text-xs font-extrabold text-on-surface">Assigned Team</p>
+                <p className="text-[10px] text-on-surface-variant">Complaint has been forwarded</p>
+              </div>
+            </div>
+            <p className="text-sm font-bold text-on-surface mb-3">{complaint.smartRouting.recommendedDepartment}</p>
+            <div className="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between text-xs border border-outline-variant">
+              <span className="text-on-surface-variant">Incident Linked</span>
+              <span className="font-bold text-primary">{complaint.incidentId}</span>
+            </div>
+            <div className="flex items-center gap-1.5 mt-3">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[11px] text-status-resolved font-semibold">
+                {complaint.smartRouting.forwardedStatus} · {complaint.smartRouting.forwardedTime}
+              </span>
             </div>
           </div>
 
-          {/* Smart Routing Action */}
-          <div class="bg-surface rounded-xl p-6 border border-primary/30 shadow-md border-t-4 border-t-primary flex flex-col gap-4">
+          {/* Related complaints notice */}
+          <div className="bg-surface rounded-2xl p-5 border border-outline-variant shadow-xs">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">
+                <span className="material-symbols-outlined text-[17px] text-secondary">groups</span>
+              </div>
+              <div>
+                <p className="text-xs font-extrabold text-on-surface">Related Reports</p>
+                <p className="text-[10px] text-on-surface-variant">Similar complaints nearby</p>
+              </div>
+            </div>
+            <p className="text-xs text-on-surface">
+              <strong className="text-secondary">{complaint.relatedComplaints.length} other passengers</strong>
+              &nbsp;reported the same issue in this coach within the last 15&nbsp;minutes. Your complaint has been linked to the same incident.
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="bg-gradient-to-br from-primary to-[#3d0c0e] rounded-2xl p-5 flex flex-col gap-4">
             <div>
-              <h3 class="font-bold text-lg text-on-surface mb-1">Smart Routing</h3>
-              <p class="text-xs text-on-surface-variant">
-                Forwarded to: <br/>
-                <strong class="text-on-surface font-bold text-sm">{complaint.smartRouting.recommendedDepartment}</strong>
+              <p className="text-[10px] font-extrabold tracking-widest text-red-200/70 uppercase mb-1">Next Step</p>
+              <p className="text-white font-bold text-sm leading-snug">
+                Confirm your complaint and track real-time resolution progress.
               </p>
             </div>
-
             <button
+              id="confirm-and-track-btn"
               onClick={handleConfirmAndTrack}
-              class="w-full bg-primary hover:bg-primary/90 text-on-primary font-bold text-sm py-3.5 rounded-xl shadow-xs transition-all flex items-center justify-center gap-2"
+              className="w-full bg-white hover:bg-red-50 text-primary font-extrabold text-sm py-3.5 rounded-xl shadow transition-all flex items-center justify-center gap-2"
             >
-              <span class="material-symbols-outlined">send</span>
-              Confirm & Track Complaint
+              <span className="material-symbols-outlined text-[18px]">send</span>
+              Confirm &amp; Track Complaint
             </button>
           </div>
+
         </div>
       </div>
     </div>

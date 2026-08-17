@@ -36,8 +36,8 @@ export default function StaffTrainingPage() {
     <div class="w-full max-w-4xl mx-auto flex flex-col gap-6 py-2">
       <div class="flex justify-between items-center border-b border-outline-variant/60 pb-4">
         <div>
-          <h1 class="font-bold text-2xl text-on-surface">Staff AI Defect Identification Training</h1>
-          <p class="text-xs text-on-surface-variant">Train field maintenance staff to verify AI classifications accurately</p>
+          <h1 class="font-bold text-2xl text-on-surface">Staff Defect Identification Training</h1>
+          <p class="text-xs text-on-surface-variant">Train field maintenance staff to correctly identify and classify defect categories</p>
         </div>
         <div class="bg-tertiary-fixed text-on-tertiary-fixed font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1">
           <span class="material-symbols-outlined text-sm">workspace_premium</span>

@@ -117,7 +117,7 @@ export default function AdminLayout() {
       <main class="md:ml-64 flex-1 flex flex-col h-full overflow-y-auto bg-background">
         <header class="w-full flex justify-between items-center py-4 px-6 border-b border-outline-variant bg-surface sticky top-0 z-10 shadow-xs">
           <div>
-            <h2 class="font-bold text-xl text-on-surface tracking-tight">RailMadad AI MIS Administration</h2>
+            <h2 class="font-bold text-xl text-on-surface tracking-tight">RailMadad MIS Administration</h2>
             <p class="text-xs text-on-surface-variant">Real-time system analytics and operational insights</p>
           </div>
           <div class="flex items-center gap-3">

@@ -10,7 +10,7 @@ export default function Footer({ onOpenLogin }) {
             Ministry of Railways
           </div>
           <div class="text-xs text-on-surface-variant">
-            © 2024 Indian Railways - RailMadad AI Grievance Redressal. All Rights Reserved.
+            © 2024 Indian Railways - RailMadad Grievance Redressal. All Rights Reserved.
           </div>
         </div>
 

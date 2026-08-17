@@ -194,8 +194,8 @@ export default function TrainComplaintPage() {
                   </div>
                   <span class="text-xs text-on-surface-variant block mt-1">{complaint.evidence.imageSize}</span>
                   <div class="text-[11px] text-ai-stroke mt-2 font-medium flex items-center gap-1">
-                    <span class="material-symbols-outlined text-sm">smart_toy</span>
-                    AI Pre-scanned: High-probability liquid leakage pattern
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                    Image reviewed: Liquid leakage confirmed
                   </div>
                 </div>
               </div>
@@ -208,8 +208,8 @@ export default function TrainComplaintPage() {
               type="submit"
               class="font-bold text-sm bg-primary text-on-primary px-8 py-3.5 rounded-xl hover:bg-primary/90 transition-all shadow-md flex items-center gap-2"
             >
-              <span class="material-symbols-outlined icon-fill">neurology</span>
-              Analyze & Register Complaint
+              <span class="material-symbols-outlined icon-fill">send</span>
+              Submit &amp; Register Complaint
             </button>
           </div>
         </div>
@@ -219,10 +219,10 @@ export default function TrainComplaintPage() {
           <div class="bg-ai-accent/30 border border-ai-stroke/40 rounded-xl p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 text-ai-stroke font-bold text-sm">
               <span class="material-symbols-outlined icon-fill">auto_awesome</span>
-              AI Processing Engine
+              Complaint Processing
             </div>
             <p class="text-xs text-on-surface-variant leading-relaxed">
-              When you submit your complaint, RailMadad AI will automatically:
+              When you submit your complaint, RailMadad will:
             </p>
             <ul class="text-xs text-on-surface flex flex-col gap-2">
               <li class="flex items-center gap-2">

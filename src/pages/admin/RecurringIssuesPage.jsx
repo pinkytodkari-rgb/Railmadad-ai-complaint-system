@@ -14,8 +14,8 @@ export default function RecurringIssuesPage() {
     <div class="w-full flex flex-col gap-6">
       <div class="flex justify-between items-center border-b border-outline-variant/60 pb-4">
         <div>
-          <h1 class="font-bold text-2xl text-on-surface">AI Recurring Issue Detection</h1>
-          <p class="text-xs text-on-surface-variant">Pattern recognition across rolling stock & zonal maintenance logs</p>
+          <h1 class="font-bold text-2xl text-on-surface">Recurring Issue Detection</h1>
+          <p class="text-xs text-on-surface-variant">Identified patterns across rolling stock &amp; zonal maintenance logs</p>
         </div>
         <span class="bg-status-emergency text-white font-bold text-xs px-3 py-1 rounded-full">
           Critical Cluster Found
@@ -26,12 +26,12 @@ export default function RecurringIssuesPage() {
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-ai-stroke/30 pb-4">
           <div>
             <span class="text-[11px] font-bold text-ai-stroke uppercase tracking-wider block mb-1">
-              AI Detected Pattern #REP-104
+              Detected Pattern #REP-104
             </span>
             <h2 class="font-extrabold text-2xl text-on-surface">{analytics.recurringIssue.issue}</h2>
           </div>
           <div class="text-right">
-            <span class="text-xs font-bold text-on-surface-variant">AI Confidence Score</span>
+            <span class="text-xs font-bold text-on-surface-variant">Confidence Score</span>
             <div class="font-black text-2xl text-ai-stroke">{analytics.recurringIssue.aiConfidence}%</div>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function RecurringIssuesPage() {
         <div class="bg-tertiary-fixed/30 border border-tertiary-fixed-dim/60 text-on-tertiary-fixed p-4 rounded-xl flex items-start gap-3">
           <span class="material-symbols-outlined text-xl text-primary mt-0.5">build_circle</span>
           <div class="text-xs">
-            <strong class="font-bold text-sm text-on-surface block mb-1">AI Preventive Maintenance Directive Recommendation:</strong>
+            <strong class="font-bold text-sm text-on-surface block mb-1">Preventive Maintenance Recommendation:</strong>
             "{analytics.recurringIssue.recommendation}"
           </div>
         </div>
