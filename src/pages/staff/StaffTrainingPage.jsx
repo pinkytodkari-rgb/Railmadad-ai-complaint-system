@@ -12,12 +12,12 @@ export default function StaffTrainingPage() {
       image: WATER_LEAKAGE_IMAGE,
       question: "What primary defect is identified in this evidence photo?",
       options: [
-        { label: "Water Leakage (Upper Panel / AC Vent)", correct: true },
+        { label: "Water Leakage (Upper Panel)", correct: true },
         { label: "Electrical Switchboard Damage", correct: false },
         { label: "Coach Floor Cleanliness Issue", correct: false },
         { label: "Window Glass Fracture", correct: false }
       ],
-      explanation: "Water droplets dripping from the AC vent ceiling indicate a drainage pipe leak requiring Coach Maintenance / Sanitation intervention."
+      explanation: "Water droplets dripping from the upper panel ceiling indicate a drainage pipe leak requiring Water & Sanitation / Coach Maintenance intervention."
     }
   ];
 

@@ -7,14 +7,15 @@ export const INITIAL_COMPLAINT_DATA = {
   complaintId: "RM-10482",
   incidentId: "INC-104",
   pnr: "4123987650",
-  train: "12951 (Rajdhani Express)",
+  train: "12951 Rajdhani Express",
   coach: "S5",
   berth: "42",
   journeyRoute: "Mumbai Central (MMCT) → New Delhi (NDLS)",
   currentLocation: "Approaching Surat (Next stop in 12 mins)",
   issue: "Water Leakage",
-  category: "Coach Maintenance / Water & Sanitation",
+  category: "Water & Sanitation / Coach Maintenance",
   urgency: "High",
+  priority: "High",
   confidence: 91,
   claimDetected: "Water leaking near upper panel of window berth 42 in Coach S5",
   extractedEntities: [
@@ -31,7 +32,7 @@ export const INITIAL_COMPLAINT_DATA = {
     audioSubmitted: false,
     videoSubmitted: false,
     imageUrl: WATER_LEAKAGE_IMAGE,
-    imageName: "leakage_b2_seat42.jpg",
+    imageName: "leakage_s5_seat42.jpg",
     imageSize: "2.4 MB"
   },
   consistency: {

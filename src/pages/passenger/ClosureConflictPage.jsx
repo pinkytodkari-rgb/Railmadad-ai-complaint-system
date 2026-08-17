@@ -37,7 +37,7 @@ export default function ClosureConflictPage() {
             </span>
           </div>
           <div class="text-xs text-on-surface leading-relaxed">
-            "Inspected AC vent & pipe joint in Coach S5. Tightened seal and dried berth 42. Area verified clear."
+            "Inspected pipe joint in Coach S5. Tightened seal and dried berth 42. Area verified clear."
           </div>
           <div class="text-[11px] text-on-surface-variant">
             Submitted by: Officer Ramesh Kumar • 11:18 AM
